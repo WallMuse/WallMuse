@@ -1,0 +1,55 @@
+<h2 style="color:#fff;">NBA Wallpapers</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px;">
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-1.png" alt="Wallpaper 1" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-1.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-2.png" alt="Wallpaper 2" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-2.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-3.png" alt="Wallpaper 3" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-3.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-4.png" alt="Wallpaper 4" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-4.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-5.png" alt="Wallpaper 5" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-5.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-6.png" alt="Wallpaper 6" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-6.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-7.png" alt="Wallpaper 7" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-7.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-8.png" alt="Wallpaper 8" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-8.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-9.png" alt="Wallpaper 9" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-9.png" download><button>Download</button></a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="wallpapers/photo-10.png" alt="Wallpaper 10" style="width:100%; max-width:300px;">
+    <br><a href="wallpapers/photo-10.png" download><button>Download</button></a>
+  </div>
+
+</div>
