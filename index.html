@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WallMuse</title>
   <style>
     body {
@@ -12,16 +12,17 @@
       text-align: center;
       padding: 50px;
     }
+
     h1 {
       font-size: 3em;
       color: #ff9a00;
     }
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 20px auto;
+
+    h2 {
+      color: #fff;
     }
-    a.button {
+
+    .button {
       display: inline-block;
       padding: 15px 25px;
       background: #ff9a00;
@@ -30,11 +31,90 @@
       font-weight: bold;
       border-radius: 8px;
     }
+
+    .wallpapers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .wallpapers div {
+      text-align: center;
+    }
+
+    .wallpapers img {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .wallpapers button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #ff9a00;
+      color: #111;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <h1>WallMuse</h1>
-  <p>Custom wallpapers, created by you. Coming soon.</p>
-  <a class="button" href="#">Get Notified</a>
+
+  <h2>NBA Wallpapers</h2>
+  <div class="wallpapers">
+    <div>
+      <img src="wallpapers/photo-1.png" alt="Wallpaper 1">
+      <br><a href="wallpapers/photo-1.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-2.png" alt="Wallpaper 2">
+      <br><a href="wallpapers/photo-2.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-3.png" alt="Wallpaper 3">
+      <br><a href="wallpapers/photo-3.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-4.png" alt="Wallpaper 4">
+      <br><a href="wallpapers/photo-4.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-5.png" alt="Wallpaper 5">
+      <br><a href="wallpapers/photo-5.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-6.png" alt="Wallpaper 6">
+      <br><a href="wallpapers/photo-6.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-7.png" alt="Wallpaper 7">
+      <br><a href="wallpapers/photo-7.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-8.png" alt="Wallpaper 8">
+      <br><a href="wallpapers/photo-8.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-9.png" alt="Wallpaper 9">
+      <br><a href="wallpapers/photo-9.png" download><button>Download</button></a>
+    </div>
+
+    <div>
+      <img src="wallpapers/photo-10.png" alt="Wallpaper 10">
+      <br><a href="wallpapers/photo-10.png" download><button>Download</button></a>
+    </div>
+  </div>
 </body>
 </html>
