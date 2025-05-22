@@ -1,120 +1,163 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WallMuse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: sans-serif;
-      background: #111;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
-      text-align: center;
-      padding: 50px;
     }
 
-    h1 {
-      font-size: 3em;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
       color: #ff9a00;
     }
 
-    h2 {
-      color: #fff;
+    .nav-icons {
+      display: flex;
+      gap: 20px;
     }
 
-    .button {
-      display: inline-block;
-      padding: 15px 25px;
-      background: #ff9a00;
+    .nav-icons i {
+      cursor: pointer;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #ff9a00;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: auto;
+      color: #ccc;
+    }
+
+    .banner {
+      background-color: #ff9a00;
       color: #111;
-      text-decoration: none;
+      text-align: center;
+      padding: 12px;
       font-weight: bold;
-      border-radius: 8px;
+      letter-spacing: 1px;
     }
 
-    .wallpapers {
+    .gallery {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
       justify-content: center;
-      padding: 20px;
+      gap: 30px;
+      padding: 40px 20px;
     }
 
-    .wallpapers div {
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
       text-align: center;
     }
 
-    .wallpapers img {
-      width: 100%;
-      max-width: 300px;
+    .card:hover {
+      transform: scale(1.03);
     }
 
-    .wallpapers button {
-      margin-top: 10px;
-      padding: 10px 15px;
-      border: none;
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 0;
+      font-size: 1.1em;
+      color: #f5f5f5;
+    }
+
+    .footer-banner {
+      text-align: center;
+      padding: 30px 20px;
+      background: #0b1e2a;
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #aaa;
+    }
+
+    /* Mobile menu icons */
+    .nav-icons span {
       background-color: #ff9a00;
-      color: #111;
+      padding: 8px 15px;
+      border-radius: 6px;
       font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h1>WallMuse</h1>
 
-  <h2>NBA Wallpapers</h2>
-  <div class="wallpapers">
-    <div>
-      <img src="wallpapers/photo-1.png" alt="Wallpaper 1">
-      <br><a href="wallpapers/photo-1.png" download><button>Download</button></a>
+  <!-- Navigation -->
+  <header>
+    <div class="logo">WallMuse</div>
+    <div class="nav-icons">
+      <span>☰</span>
+      <span>Sign In</span>
     </div>
+  </header>
 
-    <div>
-      <img src="wallpapers/photo-2.png" alt="Wallpaper 2">
-      <br><a href="wallpapers/photo-2.png" download><button>Download</button></a>
-    </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Elevate Your Lock Screen</h1>
+    <p>WallMuse brings you weekly drops of stunning wallpapers — from NBA heat to anime magic. Clean. Creative. Exclusive.</p>
+  </section>
 
-    <div>
-      <img src="wallpapers/photo-3.png" alt="Wallpaper 3">
-      <br><a href="wallpapers/photo-3.png" download><button>Download</button></a>
-    </div>
+  <!-- Weekly Drop Banner -->
+  <div class="banner">🔥 New wallpapers drop every Friday 🔥</div>
 
-    <div>
-      <img src="wallpapers/photo-4.png" alt="Wallpaper 4">
-      <br><a href="wallpapers/photo-4.png" download><button>Download</button></a>
+  <!-- Featured Gallery -->
+  <section class="gallery">
+    <div class="card">
+      <img src="wallpapers/photo-1.png" alt="Wallpaper">
+      <h3>Curry Ice</h3>
     </div>
+    <div class="card">
+      <img src="wallpapers/photo-2.png" alt="Wallpaper">
+      <h3>Booker Flames</h3>
+    </div>
+    <div class="card">
+      <img src="wallpapers/photo-3.png" alt="Wallpaper">
+      <h3>Shai Lockdown</h3>
+    </div>
+  </section>
 
-    <div>
-      <img src="wallpapers/photo-5.png" alt="Wallpaper 5">
-      <br><a href="wallpapers/photo-5.png" download><button>Download</button></a>
-    </div>
-
-    <div>
-      <img src="wallpapers/photo-6.png" alt="Wallpaper 6">
-      <br><a href="wallpapers/photo-6.png" download><button>Download</button></a>
-    </div>
-
-    <div>
-      <img src="wallpapers/photo-7.png" alt="Wallpaper 7">
-      <br><a href="wallpapers/photo-7.png" download><button>Download</button></a>
-    </div>
-
-    <div>
-      <img src="wallpapers/photo-8.png" alt="Wallpaper 8">
-      <br><a href="wallpapers/photo-8.png" download><button>Download</button></a>
-    </div>
-
-    <div>
-      <img src="wallpapers/photo-9.png" alt="Wallpaper 9">
-      <br><a href="wallpapers/photo-9.png" download><button>Download</button></a>
-    </div>
-
-    <div>
-      <img src="wallpapers/photo-10.png" alt="Wallpaper 10">
-      <br><a href="wallpapers/photo-10.png" download><button>Download</button></a>
-    </div>
+  <!-- AI Generator Teaser -->
+  <div class="footer-banner">
+    Coming soon: WallMuse AI — create your own wallpapers with a prompt. <br>Only for subscribers.
   </div>
+
 </body>
 </html>
