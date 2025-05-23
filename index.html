@@ -243,59 +243,65 @@
       document.body.prepend(msg);
     }
   });
-</script>
-  <!-- ✅ Load Firebase SDKs -->
+<!-- ✅ Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="firebase-config.js"></script>
 
-<!-- ✅ Embedded Profile Panel Logic -->
+<!-- ✅ Profile Logic (runs AFTER page + Firebase load) -->
 <script>
-  function openProfile() {
-    const panel = document.getElementById('profilePanel');
-    const profile = document.getElementById('profileContent');
-    panel.style.display = 'block';
+  window.onload = function () {
+    function openProfile() {
+      const panel = document.getElementById('profilePanel');
+      const profile = document.getElementById('profileContent');
+      panel.style.display = 'block';
 
-    const user = firebase.auth().currentUser;
+      const user = firebase.auth().currentUser;
 
-    if (!user) {
-      profile.innerHTML = `
-        <p>Please sign in to view your profile.</p>
-        <a href="login.html"><button>Log In</button></a>
-      `;
-      return;
-    }
-
-    user.reload().then(() => {
-      if (user.emailVerified) {
+      if (!user) {
         profile.innerHTML = `
-          <p>👤 <b>${user.email}</b></p>
-          <p>🪪 UID: ${user.uid}</p>
-          <p>💳 Subscription: <b>Free</b></p>
-          <p>📥 Downloads: coming soon</p>
-          <button onclick="logout()" style="margin-top: 10px;">Sign Out</button>
-        `;
-      } else {
-        profile.innerHTML = `
-          <p>⚠️ Please verify your email first.</p>
+          <p>Please sign in to view your profile.</p>
           <a href="login.html"><button>Log In</button></a>
         `;
+        return;
       }
-    }).catch((error) => {
-      profile.innerHTML = `<p>Error: ${error.message}</p>`;
-    });
-  }
 
-  function closeProfile() {
-    document.getElementById('profilePanel').style.display = 'none';
-  }
+      user.reload().then(() => {
+        if (user.emailVerified) {
+          profile.innerHTML = `
+            <p>👤 <b>${user.email}</b></p>
+            <p>🪪 UID: ${user.uid}</p>
+            <p>💳 Subscription: <b>Free</b></p>
+            <p>📥 Downloads: coming soon</p>
+            <button onclick="logout()" style="margin-top: 10px;">Sign Out</button>
+          `;
+        } else {
+          profile.innerHTML = `
+            <p>⚠️ Please verify your email first.</p>
+            <a href="login.html"><button>Log In</button></a>
+          `;
+        }
+      }).catch((error) => {
+        profile.innerHTML = `<p>Error: ${error.message}</p>`;
+      });
+    }
 
-  function logout() {
-    firebase.auth().signOut().then(() => {
-      alert("Signed out!");
-      window.location.href = "index.html";
-    });
-  }
+    function closeProfile() {
+      document.getElementById('profilePanel').style.display = 'none';
+    }
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        alert("Signed out!");
+        window.location.href = "index.html";
+      });
+    }
+
+    // 🔁 Make functions global
+    window.openProfile = openProfile;
+    window.closeProfile = closeProfile;
+    window.logout = logout;
+  };
 </script>
 </body>
 </html>
