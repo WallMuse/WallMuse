@@ -203,5 +203,25 @@
       .catch(error => alert(error.message));
   }
 </script>
+  <script>
+  function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        if (user.emailVerified) {
+          alert("Logged in!");
+          window.location.href = "index.html";
+        } else {
+          firebase.auth().signOut();
+          alert("⚠️ Please verify your email first. We sent you a link.");
+        }
+      })
+      .catch(error => alert(error.message));
+  }
+</script>
 </body>
 </html>
