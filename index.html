@@ -259,6 +259,7 @@
     panel.style.display = 'block';
 
     firebase.auth().onAuthStateChanged((user) => {
+      console.log("USER:", user);
       if (!user) {
         profile.innerHTML = `
           <p>Please sign in to view your profile.</p>
