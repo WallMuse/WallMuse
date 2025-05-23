@@ -257,8 +257,11 @@
     document.getElementById('profilePanel').style.display = 'block';
 
     firebase.auth().onAuthStateChanged(user => {
-      const profile = document.getElementById("profileContent");
-      if (user && user.emailVerified) {
+  const profile = document.getElementById("profileContent");
+
+  if (user) {
+    user.reload().then(() => {
+      if (user.emailVerified) {
         profile.innerHTML = `
           <p>👤 <b>${user.email}</b></p>
           <p>🪪 UID: ${user.uid}</p>
@@ -268,12 +271,19 @@
         `;
       } else {
         profile.innerHTML = `
-          <p>Please sign in to view your profile.</p>
+          <p>⚠️ Please verify your email first.</p>
           <a href="login.html"><button>Log In</button></a>
         `;
       }
     });
+  } else {
+    profile.innerHTML = `
+      <p>Please sign in to view your profile.</p>
+      <a href="login.html"><button>Log In</button></a>
+    `;
   }
+});
+
 
   function closeProfile() {
     document.getElementById('profilePanel').style.display = 'none';
