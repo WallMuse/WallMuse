@@ -119,7 +119,12 @@
   </style>
 </head>
 <body>
-
+<!-- Profile Panel -->
+<div id="profilePanel" style="display:none; position:fixed; top:0; right:0; height:100%; width:320px; background:#111; color:#fff; box-shadow:-3px 0 10px rgba(0,0,0,0.7); padding:30px; z-index:999;">
+  <h2>My Profile</h2>
+  <div id="profileContent">Loading...</div>
+  <button onclick="closeProfile()" style="margin-top: 20px;">Close</button>
+</div>
   <!-- Navigation -->
   <header>
   <div class="logo">WallMuse</div>
@@ -133,6 +138,7 @@
   <div class="nav-icons">
     <!-- Navigation Right (auth buttons) -->
 <div class="nav-icons">
+  <a href="#" onclick="openProfile()"><span>Profile</span></a>
   <a href="login.html"><span>Log In</span></a>
   <a href="signup.html"><span>Sign Up</span></a>
 </div> 
@@ -241,6 +247,44 @@
       document.body.prepend(msg);
     }
   });
+</script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="firebase-config.js"></script>
+
+<script>
+  function openProfile() {
+    document.getElementById('profilePanel').style.display = 'block';
+
+    firebase.auth().onAuthStateChanged(user => {
+      const profile = document.getElementById("profileContent");
+      if (user && user.emailVerified) {
+        profile.innerHTML = `
+          <p>👤 <b>${user.email}</b></p>
+          <p>🪪 UID: ${user.uid}</p>
+          <p>💳 Subscription: <b>Free</b></p>
+          <p>📥 Downloads: coming soon</p>
+          <button onclick="logout()" style="margin-top: 10px;">Sign Out</button>
+        `;
+      } else {
+        profile.innerHTML = `
+          <p>Please sign in to view your profile.</p>
+          <a href="login.html"><button>Log In</button></a>
+        `;
+      }
+    });
+  }
+
+  function closeProfile() {
+    document.getElementById('profilePanel').style.display = 'none';
+  }
+
+  function logout() {
+    firebase.auth().signOut().then(() => {
+      alert("Signed out!");
+      window.location.href = "index.html";
+    });
+  }
 </script>
 </body>
 </html>
