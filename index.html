@@ -254,36 +254,40 @@
 
 <script>
   function openProfile() {
-    document.getElementById('profilePanel').style.display = 'block';
+    const panel = document.getElementById('profilePanel');
+    const profile = document.getElementById('profileContent');
+    panel.style.display = 'block';
 
-    firebase.auth().onAuthStateChanged(user => {
-  const profile = document.getElementById("profileContent");
-
-  if (user) {
-    user.reload().then(() => {
-      if (user.emailVerified) {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
         profile.innerHTML = `
-          <p>👤 <b>${user.email}</b></p>
-          <p>🪪 UID: ${user.uid}</p>
-          <p>💳 Subscription: <b>Free</b></p>
-          <p>📥 Downloads: coming soon</p>
-          <button onclick="logout()" style="margin-top: 10px;">Sign Out</button>
-        `;
-      } else {
-        profile.innerHTML = `
-          <p>⚠️ Please verify your email first.</p>
+          <p>Please sign in to view your profile.</p>
           <a href="login.html"><button>Log In</button></a>
         `;
+        return;
       }
-    });
-  } else {
-    profile.innerHTML = `
-      <p>Please sign in to view your profile.</p>
-      <a href="login.html"><button>Log In</button></a>
-    `;
-  }
-});
 
+      // Force reload user data
+      user.reload().then(() => {
+        if (user.emailVerified) {
+          profile.innerHTML = `
+            <p>👤 <b>${user.email}</b></p>
+            <p>🪪 UID: ${user.uid}</p>
+            <p>💳 Subscription: <b>Free</b></p>
+            <p>📥 Downloads: coming soon</p>
+            <button onclick="logout()" style="margin-top: 10px;">Sign Out</button>
+          `;
+        } else {
+          profile.innerHTML = `
+            <p>⚠️ Please verify your email first.</p>
+            <a href="login.html"><button>Log In</button></a>
+          `;
+        }
+      }).catch((error) => {
+        profile.innerHTML = `<p>Error loading profile: ${error.message}</p>`;
+      });
+    });
+  }
 
   function closeProfile() {
     document.getElementById('profilePanel').style.display = 'none';
